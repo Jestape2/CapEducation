@@ -1,16 +1,13 @@
 import random
 
 def get_computer_choice():
-    # Компьютер выбирает случайно
     varianty = ["камень", "ножницы", "бумага"]
     return random.choice(varianty)
 
 def determine_winner(vvod_igroka, vvod_kompa):
-    # Проверка на ничью
     if vvod_igroka == vvod_kompa: 
         return "nichya"
     
-    # Проверка победы игрока
     if (vvod_igroka == "камень" and vvod_kompa == "ножницы") or \
        (vvod_igroka == "ножницы" and vvod_kompa == "бумага") or \
        (vvod_igroka == "бумага" and vvod_kompa == "камень"):
@@ -24,12 +21,10 @@ def main():
     ochki_kompa = 0
     
     while ochki_igroka < 3 and ochki_kompa < 3:
-        # Ввод пользователя и ход компьютера
         vvod_polzovatelya = input("\nВаш ход: ").lower().strip()
         peremennaya_kompa = get_computer_choice()
         print(f"Компьютер: {peremennaya_kompa}")
         
-        # Определение победителя раунда
         itog_raunda = determine_winner(vvod_polzovatelya, peremennaya_kompa)
         
         if itog_raunda == "igrok": 
